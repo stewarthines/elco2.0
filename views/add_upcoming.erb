@@ -1,0 +1,39 @@
+<div class="container_12 form">
+	<%= erb :_backend_menu %>
+	<div class="grid_12"><h2>Upcoming Movies:</h2></div>
+	<div class="grid_9">
+		<p id="introText">This page allows you to post your planned and upcoming movies. Simply add a movie to the database and then add it to the upcoming slot. Don't forget to remove it once it's showing.</p>
+	</div>
+	<div class="grid_12"><hr /></div>
+	<div class="clear"></div>
+		<form method="POST" action="/add_upcoming">
+		<div class="grid_12">
+			<label for="nowShowing[Movie]">Movie</label>
+			<select name="upcoming[Movie]">
+				<% Movie.all.each do |m| %>
+					<option value="<%= m.id %>"><%= m.Title %></option>
+				<% end %>
+			</select>
+		</div>
+		<div class="grid_12">
+			<input type="submit" class="button" />
+		</div>
+	</form>
+	<div class="grid_12"><hr /></div>
+	<div class="clear"></div>
+	<%= partial(:upcoming) %>
+</div>
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	

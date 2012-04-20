@@ -1,0 +1,22 @@
+
+	<div class="upcomingMovies">
+		<div class="grid_12">
+			<h2>Upcoming:</h2>
+		</div>
+		<% Upcoming.all.each do |u| %>			
+		<div class="upcomingMovie">
+			<div class="grid_2">
+				<img src="<%= u.movie.Poster_url %>" width="142" height="220" />
+				<a href="<%= u.movie.Trailer_url %>">View The Trailer</a>
+				<a href="<%= u.movie.IMDB_url %>">See on IMDB</a>
+				<a class="hide" href="/remove_upcoming/<%= u.id %>">Remove This Movie</a>
+			</div>
+			<div class="grid_2">
+				<h4><%= u.movie.Title %></h4>
+				<p><%= u.movie.Description %></p>
+			</div>
+		</div>
+		<% end %>
+		<div class="clear"></div>
+	</div>
+

@@ -1,0 +1,60 @@
+<div class="container_12 form">
+	<%= erb :_backend_menu %>
+	<form method="POST" action="/add_movie">
+		<div class="grid_12"><h2>Add A New Movie</h2></div>
+		<div class="grid_6">
+		<p>This page allows you to add a movie to your database. Please complete all the fields as they will display to the public if you fill them out or not. You can visit <a href="http://www.imdb.com">IMDB.com</a> to look up your movie and find all of the information to complete the form below.</p>
+		</div>
+		<div class="grid_12"><hr /></div>
+		<div class="grid_12"><h4>General Information:</h4></div>
+		<div class="grid_4">
+			<label for="title">Title:</label>
+			<input type="text" name="movie[Title]" />
+		</div>
+		<div class="grid_4">
+			<label for="poster_url">Poster:</label>
+			<input type="text" name="movie[Poster_url]" />
+		</div>
+		<div class="grid_4">
+			<label for="rating">Rating:</label>
+			<input type="text" name="movie[Rating]" />
+		</div>
+		<div class="grid_3">
+			<label for="runtime">Runtime:</label>
+			<input type="text" name="movie[RunTime]" />
+		</div>
+		<div class="grid_3">
+			<label for="starring">Starring:</label>
+			<input type="text" name="movie[Starring]" />
+		</div>
+		<div class="grid_6">
+			<label for="description">Description:</label>
+			<input type="text" name="movie[Description]" />
+		</div>
+
+		<div class="grid_12"><hr /></div>
+
+		<div class="grid_12"><h4>Links:</h4></div>
+
+		<div class="grid_4">
+			<label for="trailer_url">Trailer:</label>
+			<input type="text" name="movie[Trailer_url]" />
+		</div>
+		<div class="grid_4">
+			<label for="imdb_url">IMDB:</label>
+			<input type="text" name="movie[IMDB_url]" />
+		</div>
+		<div class="grid_4">
+			<label for="reviews_url">Reviews:</label>
+			<input type="text" name="movie[Reviews_url]" />
+		</div>
+		<div class="grid_12">
+			<input class="button" type="submit" value="Save Movie" />
+		</div>
+		<div class="clear"></div>
+	<form>
+</div>
+
+
+	
+

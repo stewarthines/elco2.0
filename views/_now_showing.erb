@@ -1,0 +1,28 @@
+<div class="nowShowing">
+	<div class="grid_12"><h1>Now Showing:</h1></div>
+	<div class="grid_3">
+		<img src="<%= item.movie.Poster_url %>">
+	</div>
+	<div class="grid_9">
+		<h3 class="nowShowing-title"><%= item.movie.Title %></h3>
+		<ul class="nowShowing-info">
+			<li class="NowShowing-rating">Rated: <span><%= item.movie.Rating %></span></li>
+			<li class="NowShowing-staring">Starring: <span><%= item.movie.Starring %></span></li>
+			<li class="NowShowing-runtime">Runtime: <span><%= item.movie.RunTime %> </span></li>
+			<li class="NowShowing-showDates">Showing: <span><%= item.Dates %> </span></li>
+		</ul>
+		<hr>
+		<p>
+			<%= item.movie.Description %> 
+		</p>
+		<nav>
+			<a class="nowShowing-trailer" href="<%= item.movie.Trailer_url %>">
+				Watch The Trailer</a>
+			<span>|</span>
+			<a class="nowShowing-reviews" href="<%= item.movie.Reviews_url %>">Read Reviews</a>
+			<span>|</span>
+			<a class="nowShowing-imdb" href="<%= item.movie.IMDB_url %>">View on IMDB</a>
+		</nav>
+	</div>
+	<div class="clear"></div>
+</div>
