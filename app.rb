@@ -2,12 +2,19 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'partials.rb'
+require './auth.rb'
+require 'digest/sha1'
+
+enable :sessions
 
 helpers Sinatra::Partials
+helpers Sinatra::Authorization
 
 # Creating classes for our stored database entities
 # This allows us to use this as active record entities, savind and retrieving from the db
 class Movie < ActiveRecord::Base
+	has_one :now_showing, :dependent => :destroy
+	has_one :upcoming, :dependent => :destroy
 end
 
 class NowShowing < ActiveRecord::Base
@@ -22,16 +29,35 @@ get '/login' do
 	erb :login
 end
 
-def authenticate! 
-	return false
+post "/login" do
+	if login(params[:username], params[:password])
+		redirect "/dashboard"
+	end	
+	redirect "/login"
 end
 
+get "/logout" do
+	logout
+	redirect "/"
+end 
+# def authenticate! 
+# 	return false
+# end
 
-before '/dashboard' do
-	unless authenticate!
-		redirect '/login'
-	end
+get "/help" do
+	erb :help
 end
+
+get '/dashboard' do
+	protected!
+	erb :dashboard
+end
+
+# before '/dashboard' do
+# 	unless authenticate!
+# 		redirect '/login'
+# 	end
+# end
 
 
 #get main page
@@ -39,16 +65,16 @@ get '/ ?' do
 	erb :index
 end
 
-get '/dashboard' do
-	erb :dashboard
-end
+
 
 get '/movies' do
+	protected!
 	erb :movies
 end
 
 # This is the add movie page
 get '/add_movie' do
+	protected!
 	erb :add_movie
 end
 
@@ -66,7 +92,7 @@ post '/add_movie' do
 	redirect '/movies'
 end
 
-get '/remove_movie/:id' do
+get '/remove_movie/:id' do	
 	Movie.destroy(params[:id])
 	redirect '/movies'
 end
@@ -82,7 +108,8 @@ get '/movie/:id' do
 end
 
 #getting the form for adding a new NowShowing
-get '/add_now_showing' do	
+get '/add_now_showing' do
+	protected!	
 	erb :add_now_showing
 end
 

@@ -166,6 +166,22 @@ ul.nowShowing-info li span{
 #concessions{
 	text-align:center;
 }
+.icons{
+	height:87px;
+	width:80px;
+	display: block;
+	text-indent:-99999px;
+	background: url('../images/elco_icons.png');
+}
+#iconShowdog{
+	background-position:-100px 0px;
+}
+#iconDrink{
+	background-position:-209px 0;
+}
+#iconCandy{
+	background-position:-300px 0;
+}
 
 /*Form Styles*/
 

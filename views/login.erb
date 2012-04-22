@@ -4,10 +4,14 @@
 		<hr />
 	</div>
 	<div class="grid_6 prefix_3 suffix_3">
-		<form>
-			<label>Password:</label>
-			<input type="password"/>
-			<input type="submit" class="button">
-		</form>
+		<form method="POST" action="/login">
+				<label>Username:</label>
+				<input type="text" name="username" />
+
+				<label >Password:</label>
+				<input type="password" name="password"/>
+
+				<input type="submit" class="button" value="Log In">
+			</form>
 	</div>
 </div>
