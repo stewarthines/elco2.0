@@ -1,20 +1,44 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/activerecord'
+# require 'sinatra/base'
 require 'partials.rb'
 require './auth.rb'
 require 'digest/sha1'
+# require 'rack-flash'
 
 enable :sessions
 
+
 helpers Sinatra::Partials
 helpers Sinatra::Authorization
+
+# class MyApp < Sinatra::Base
+#   enable :sessions
+#   use Rack::Flash
+
+#   post '/set-flash' do
+#     # Set a flash entry
+#     flash[:notice] = "Thanks for signing up!"
+
+#     # Get a flash entry
+#     flash[:notice] # => "Thanks for signing up!"
+
+#     # Set a flash entry for only the current request
+#     flash.now[:notice] = "Thanks for signing up!"
+#   end
+# end
+
 
 # Creating classes for our stored database entities
 # This allows us to use this as active record entities, savind and retrieving from the db
 class Movie < ActiveRecord::Base
 	has_one :now_showing, :dependent => :destroy
 	has_one :upcoming, :dependent => :destroy
+end
+
+not_found do
+	erb :error
 end
 
 class NowShowing < ActiveRecord::Base
@@ -38,6 +62,7 @@ end
 
 get "/logout" do
 	logout
+	flash[:notice] = "you logged out!"
 	redirect "/"
 end 
 # def authenticate! 
