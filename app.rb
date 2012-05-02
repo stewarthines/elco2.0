@@ -61,8 +61,7 @@ post "/login" do
 end
 
 get "/logout" do
-	logout
-	flash[:notice] = "you logged out!"
+	logout	
 	redirect "/"
 end 
 # def authenticate! 
