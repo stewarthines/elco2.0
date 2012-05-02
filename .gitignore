@@ -1,0 +1,4 @@
+production.db
+development.db
+logs/sinatra.log
+stats/

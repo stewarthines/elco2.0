@@ -14,11 +14,11 @@
 	<div class="grid_12"><h3>Movies:</h3></div>
 	<div class="grid_11 prefix_1">
 		<ol>
-			<% Movie.all.each do |M | %>
+			<% Movie.all.each do |m| %>
 			<li>
-				<span><%= M.Title %></span>
+				<span><%= m.Title %></span>
 				<span> | </span>
-				<a href="/remove_movie/<%= M.id %>">Remove</a>
+				<a href="/remove_movie/<%= m.id %>">Remove</a>
 			</li>
 			<% end %>
 		</ol>
