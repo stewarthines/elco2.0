@@ -23,6 +23,13 @@ body{
 	border-bottom:1px solid rgba(255,255,255, 0.4);
 }
 
+.page{
+	background:#fff;
+	padding-left:2%;
+	padding-right:2%;
+
+}
+
 a{
 	font-weight:bold;
 	color:#cc3737;
@@ -70,9 +77,15 @@ h2{
 	text-indent:-999999px;
 	width:229px;
 	margin-bottom:20px;
+
 	
 
 }
+
+.connect_widget_not_connected_text{
+	color:#ffffff;
+}
+
 
 #intro{
 	color:#ffffff;
@@ -357,16 +370,13 @@ nav a:hover{
 }
 
 /*upcoming movies*/
-.upcomingMovies{
-	background:#cccccc;
-	text-shadow:0 1px 0 #fff;
-	padding:10px 0;
-}
+
 .upcomingMovies img{
 	-webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
 	-moz-box-shadow:    0px 2px 4px rgba(0, 0, 0, 0.7);
 	box-shadow:         0px 2px 4px rgba(0, 0, 0, 0.7);
-	margin-bottom:5px;
+	display: block;
+	margin:0 auto 15px auto;
 }
 .upcomingMovies a{
 	display: block;

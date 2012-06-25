@@ -1,17 +1,34 @@
-<div class="container_12 form">
-	<div class="grid_12"> <h1>Please Log In:</h1></div>
-	<div class="grid_12">
-		<hr />
+<div class="container-fluid">
+	<div class="row-fluid hidden-desktop">
+		<div class="span12">
+			<div class="alert alert-block alert-danger" style="margin-bottom:0px; margin-top:10px;">
+			  <a class="close" data-dismiss="alert" href="#">×</a>
+			  <h4 class="alert-heading"><span class="icon-ui-icon-alert"></span>&nbsp;Heads Up!</h4>
+			  We don't recommend using these forms with your tablet or smart phone. They will still work, but copying and pasting movie info will be much more difficult.
+			</div>
+		</div>
 	</div>
-	<div class="grid_6 prefix_3 suffix_3">
-		<form method="POST" action="/login">
-				<label>Username:</label>
-				<input type="text" name="username" />
+	<div class="row-fluid">
+		<div class="span3">
+			&nbsp;
+		</div>
+		<div class="span6" style="margin-top:40px;">
+			<div class="hero-unit">
+				<h2><span class="icon-ui-icon-alert"></span>&nbsp;&nbsp;Please Login</h2>
+				<hr />
+				<form method="POST" action="/login">
+					<label>Username:</label>
+					<input type="text" name="username" class="span12 tool" required autofocus rel="tooltip" title="Please input your username." />
 
-				<label >Password:</label>
-				<input type="password" name="password"/>
+					<label >Password:</label>
+					<input type="password" name="password" class="span12 tool" required rel="tooltip" title="Please input your password."/>
 
-				<input type="submit" class="button" value="Log In">
-			</form>
+					<button type="submit" class="btn btn-large span12 btn-primary" value="Log In" style="margin-left:0; margin-top:10px;"><span class="icon-ui-icon-circle-check"></span>&nbsp;&nbsp;Log In</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('.tool').tooltip('hide');
+</script>

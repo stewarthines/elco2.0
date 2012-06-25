@@ -1,28 +1,54 @@
-<div class="nowShowing">
-	<div class="grid_12"><h1>Now Showing:</h1></div>
-	<div class="grid_3">
-		<img src="<%= item.movie.Poster_url %>">
+<div class="nowShowing hidden-phone">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="page-header">
+			  <h1>Now Showing:</h1>
+			</div>
+		</div>
 	</div>
-	<div class="grid_9">
-		<h3 class="nowShowing-title"><%= item.movie.Title %></h3>
-		<ul class="nowShowing-info">
-			<li class="NowShowing-rating">Rated: <span><%= item.movie.Rating %></span></li>
-			<li class="NowShowing-staring">Starring: <span><%= item.movie.Starring %></span></li>
-			<li class="NowShowing-runtime">Runtime: <span><%= item.movie.RunTime %> </span></li>
-			<li class="NowShowing-showDates">Showing: <span><%= item.Dates %> </span></li>
-		</ul>
-		<hr>
-		<p>
-			<%= item.movie.Description %> 
-		</p>
-		<nav>
-			<a class="nowShowing-trailer" href="<%= item.movie.Trailer_url %>">
-				Watch The Trailer</a>
-			<span>|</span>
-			<a class="nowShowing-reviews" href="<%= item.movie.Reviews_url %>">Read Reviews</a>
-			<span>|</span>
-			<a class="nowShowing-imdb" href="<%= item.movie.IMDB_url %>">View on IMDB</a>
-		</nav>
+	<div class="row-fluid">
+		<div class="span3">
+			<img src="<%= item.movie.Poster_url %>">
+		</div>
+		<div class="span9">
+			<h3 class="nowShowing-title"><%= item.movie.Title %></h3>
+			<ul class="unstyled">
+				<li><strong>Rated:</strong>&nbsp;<%= item.movie.Rating %></li>
+				<li><strong>Starring:</strong>&nbsp;<%= item.movie.Starring %></li>
+				<li><strong>Runtime:</strong>&nbsp;<%= item.movie.RunTime %> </li>
+				<li><strong>Showing Dates:</strong>&nbsp;<%= item.Dates %></li>
+			</ul>
+			<hr />
+			<p class="lead"><%= item.movie.Description %></p>
+			<nav>
+				<a href="<%= item.movie.Trailer_url %>">Watch The Trailer</a>
+				&nbsp;<span>|</span>&nbsp;
+				<a href="<%= item.movie.Reviews_url %>">Read The Reviews</a>
+				&nbsp;<span>|</span>&nbsp;
+				<a href="<%= item.movie.IMDB_url %>">View on IMDB</a>
+			</nav>
+		</div>
 	</div>
-	<div class="clear"></div>
+</div>
+<!-- phone version -->
+<div class="nowShoing hidden-tablet hidden-desktop">
+	<div class="row-fluid">
+		<div class="span12 helper-text-align-center">
+			<div class="page-header">
+				<h1>Now Showing:</h1>
+			</div>			
+		</div>
+		<div class="row-fluid">
+			<div class="span12 helper-text-align-center">
+				<h2><%= item.movie.Title %></h2>
+				<img src="<%= item.movie.Poster_url %>" style="margin-bottom:20px;">
+			</div>	
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<p><%= item.movie.Description %></p>
+				<a href="<%= item.movie.Trailer_url %>" class="btn btn-large btn-primary span12">Watch The Trailer</a>
+			</div>
+		</div>
+	</div>
 </div>

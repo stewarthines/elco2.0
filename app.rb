@@ -30,6 +30,10 @@ helpers Sinatra::Authorization
 # end
 
 
+get "/login" do
+	erb :login, :layout => :layout_blank
+end
+
 # Creating classes for our stored database entities
 # This allows us to use this as active record entities, savind and retrieving from the db
 class Movie < ActiveRecord::Base
@@ -38,7 +42,7 @@ class Movie < ActiveRecord::Base
 end
 
 not_found do
-	erb :error
+	erb :error, :layout => :layout_blank
 end
 
 class NowShowing < ActiveRecord::Base
@@ -49,9 +53,6 @@ class Upcoming < ActiveRecord::Base
 	belongs_to :movie
 end
 
-get '/login' do
-	erb :login
-end
 
 post "/login" do
 	if login(params[:username], params[:password])
@@ -69,12 +70,12 @@ end
 # end
 
 get "/help" do
-	erb :help
+	erb :help, :layout => :layout_backend
 end
 
 get '/dashboard' do
 	protected!
-	erb :dashboard
+	erb :dashboard, :layout => :layout_backend
 end
 
 # before '/dashboard' do
@@ -93,13 +94,13 @@ end
 
 get '/movies' do
 	protected!
-	erb :movies
+	erb :movies, :layout => :layout_backend
 end
 
 # This is the add movie page
 get '/add_movie' do
 	protected!
-	erb :add_movie
+	erb :add_movie, :layout => :layout_backend
 end
 
 
@@ -134,7 +135,7 @@ end
 #getting the form for adding a new NowShowing
 get '/add_now_showing' do
 	protected!	
-	erb :add_now_showing
+	erb :add_now_showing, :layout => :layout_backend
 end
 
 # This is the add now showing action, where the form data from /add_now_showing is posted
@@ -165,7 +166,7 @@ end
 
 #getting the form for adding a new upcoming
 get '/add_upcoming' do	
-	erb :add_upcoming
+	erb :add_upcoming, :layout => :layout_backend
 end
 
 # This is the add upcoming action, where the form data from /add_upcoming is posted

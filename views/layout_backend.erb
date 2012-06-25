@@ -1,0 +1,85 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<title>El-Co Drive In</title>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="styles/icon-font.css">	
+	<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/knockout-2.1.0.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<style type="text/css">
+		.backendContent{
+			margin-top:60px;
+		}
+	</style>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+    	<a class="brand" href="/dashboard">
+	    	<span class="icon-ui-icon-circle-star"></span>&nbsp;&nbsp;El Co Drive-In
+		</a>
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    		<span class="icon-bar"></span>
+    		<span class="icon-bar"></span>
+    		<span class="icon-bar"></span>
+    	</a>
+        <div class="nav-collapse">
+	        <ul class="nav pull-right">
+			  	<li >
+					<a href="/dashboard">Dashboard Home</a>
+				</li>
+				  <li class="divider-vertical"></li>
+				<li class="">
+					<a href="/">View Site</a>
+				</li>
+				  <li class="divider-vertical"></li>
+				<li class="dropdown">
+				    <a href="#"
+				          class="dropdown-toggle"
+				          data-toggle="dropdown">
+				          Movies
+				          <b class="caret"></b>
+				    </a>
+				    <ul class="dropdown-menu">
+				      <li><a href="/movies"><span class="icon-ui-icon-harddrive"></span>&nbsp;Movie Database</a></li>
+				      <li><a href="/add_movie"><span class="icon-ui-icon-plus"></span>&nbsp;Add A Movie</a></li>
+				      <li><a href="/add_now_showing"><span class="icon-ui-icon-video-b"></span>&nbsp;Now Showing</a></li>
+				      <li><a href="/add_upcoming"><span class="icon-ui-icon-arrowthick-1-n"></span>&nbsp;Upcoming Movies</a></li>
+				    </ul>
+				  </li>
+				  <li class="divider-vertical"></li>
+				  <li class="dropdown">
+				    <a href="#"
+				          class="dropdown-toggle"
+				          data-toggle="dropdown">
+				          Help
+				          <b class="caret"></b>
+				    </a>
+				    <ul class="dropdown-menu">
+				      <li><a href="/help"><span class="icon-ui-icon-circle-question"></span>&nbsp;Help Home</a></li>
+				      <li><a href="/help#addMovie"><span class="icon-ui-icon-plus"></span>&nbsp;Adding a movie</a></li>
+				      <li><a href="/add_now_showing"><span class="icon-ui-icon-video-b"></span>&nbsp;Addding Now Showing</a></li>
+				      <li><a href="/add_upcoming"><span class="icon-ui-icon-arrowthick-1-n"></span>&nbsp;Adding Upcoming</a></li>
+				    </ul>
+				  </li>
+				  
+				  <li class="divider-vertical"></li>
+				<li><a href="/logout">Log Out</a></li>
+			</ul>	
+        </div>
+    </div>
+  </div>
+</div>
+<div class="backendContent">
+	<div class="container-fluid">
+		<%= yield %>
+	</div>
+</div>
+
+</body>
+</html>

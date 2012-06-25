@@ -15,12 +15,20 @@ h3{
 	padding-bottom:40px;
 }
 </style>
-<div class="container_12 form">
-	<h1>404!</h1>
-
-	<h2>Error! Sorry, we can't find that page!</h2>
-	<p>This page can't be found. This page might have been deleted, moved, or you might have entered something wrong.</p>
-
-	<h3><a href="/">Home</a></h3>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="alert alert-danger helper-text-align-center" style="margin-top:40px;">
+				<h1><span class="icon-ui-icon-alert"></span>&nbsp;&nbsp;&nbsp;404!</h1>
+				<h2>Error! Sorry, we cant find that page!</h2>
+				<p class="lead">This page can't be found. This mage might have been deleted, moved, or you might have entered something wrong. Try starting over!</p>
+				<div class="row-fluid">
+					<button type="button" class="btn btn-large btn-primary span12" onclick="window.location='/'"><span class="icon-ui-icon-home"></span>&nbsp;&nbsp;Home</button>
+				</div>				
+			</div>
+		</div>
+	</div>
 </div>
+
+
 

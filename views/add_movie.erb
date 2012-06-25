@@ -1,60 +1,123 @@
-<div class="container_12 form">
-	<%= erb :_backend_menu %>
-	<form method="POST" action="/add_movie">
-		<div class="grid_12"><h2>Add A New Movie</h2></div>
-		<div class="grid_6">
-		<p>This page allows you to add a movie to your database. Please complete all the fields as they will display to the public if you fill them out or not. You can visit <a href="http://www.imdb.com">IMDB.com</a> to look up your movie and find all of the information to complete the form below. Note: To add a poster you'll need to head to <a href="http://www.wikipedia.org/">Wikipedia</a> and search for your movie there. This is becasue IMDB does not allow hot-linking.</p>
+<div class="alert alert-info">
+  <button class="close" data-dismiss="alert">×</button>
+  <span class="icon-ui-icon-alert">&nbsp;</span><strong>Heads up!</strong> You need to fill out all the forms on this page.
+</div>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="page-header">
+			<h1><span class="icon-ui-icon-circle-plus"></span>&nbsp;&nbsp;&nbsp;Add a Movie:</h1>
+			<p class="lead">
+				This page allows you to add a movie to your database. All fields are required in order to complete the form. To help you fill out the forms please visit <a href="http://www.imdb.com">The Internet Movie Database.</a> It will have all the information you need except the poster. Posters can be found at <a href="http://www.wikipedia.org">Wikipedia</a> by searching for the title of your movie. You can preivew your movie at the bottom of the page.</p>
+			<p></p>
 		</div>
-		<div class="grid_12"><hr /></div>
-		<div class="grid_12"><h4>General Information:</h4></div>
-		<div class="grid_4">
-			<label for="title">Title:</label>
-			<input type="text" name="movie[Title]" />
-		</div>
-		<div class="grid_4">
-			<label for="poster_url">Poster:</label>
-			<input type="text" name="movie[Poster_url]" />
-		</div>
-		<div class="grid_4">
-			<label for="rating">Rating:</label>
-			<input type="text" name="movie[Rating]" />
-		</div>
-		<div class="grid_3">
-			<label for="runtime">Runtime:</label>
-			<input type="text" name="movie[RunTime]" />
-		</div>
-		<div class="grid_3">
-			<label for="starring">Starring:</label>
-			<input type="text" name="movie[Starring]" />
-		</div>
-		<div class="grid_6">
-			<label for="description">Description:</label>
-			<input type="text" name="movie[Description]" />
-		</div>
-
-		<div class="grid_12"><hr /></div>
-
-		<div class="grid_12"><h4>Links:</h4></div>
-
-		<div class="grid_4">
-			<label for="trailer_url">Trailer:</label>
-			<input type="text" name="movie[Trailer_url]" />
-		</div>
-		<div class="grid_4">
-			<label for="imdb_url">IMDB:</label>
-			<input type="text" name="movie[IMDB_url]" />
-		</div>
-		<div class="grid_4">
-			<label for="reviews_url">Reviews:</label>
-			<input type="text" name="movie[Reviews_url]" />
-		</div>
-		<div class="grid_12">
-			<input class="button" type="submit" value="Save Movie" />
-		</div>
-		<div class="clear"></div>
-	<form>
+	</div>
 </div>
 
+<form class="form" method="POST" action="/add_movie">
+	<div class="row-fluid">
+		<div class="span6">			
+			<div class="well">
+				<legend>General Movie Info:</legend>
+				<label for="title">Title:</label>
+				<input type="text" class="span12 tool" name="movie[Title]" rel="tooltip" title="Paste the movie title here." autofocus required data-bind="value: movieTitle"/>
+				<br />
+				
+					<label for="rating">Rating:</label>
+					<input type="text" class="span12 tool" style="display:inline-block" name="movie[Rating]" rel="tooltip" title="Paste the movie's rating here." required data-bind="value: movieRating">
+					<label for="RunTime">Runtime:</label>
+					<input type="text" class="span12 tool" style="display:inline-block" name="movie[RunTime]" rel="tooltip" title="Paste the movie's runtime here." required data-bind="value: movieRuntime">
+				
+				<br />
+				<label for="description">Description:</label>
+				<textarea type="text" class="span12 tool" name="movie[Description]" rel="tooltip" title="Paste the movie description here. The description should be 3-6 sentences long." required data-bind="value: movieDescription"></textarea>
+				<br />
+				<label for="description">Staring:</label>
+				<textarea type="text" class="span12 tool" name="movie[Starring]" rel="tooltip" title="Paste the movie stars' names here. Be sure to double check that you copied only the names and not the word <em>stars.<em>" required data-bind="value: movieStars"></textarea>
+			</div>			
+		</div>
+		<div class="span6">
+			<fieldset>
+				<legend>Movie Links</legend>
+				<p class=" muted">These are links that take users to IMDB content, except the poster which displays the poster image.</p>
 
-	
+				<label for="imdb_url">IMDB Link:</label>
+				<input type="text" class="span12 tool" name="movie[IMDB_url]" rel="tooltip" title="Paste the IMDB movie page link here." required/>
+				<br>
+				<label for="reviews_url">Reviews:</label>
+				<input type="text" class="span12 tool" name="movie[Reviews_url]" rel="tooltip" title="Paste the link address for the critic reviews here video here." required/>
+				<br>
+				<label for="trailer_url">Trailer:</label>
+				<input type="text" class="span12 tool" name="movie[Trailer_url]" rel="tooltip" title="Paste the link address for the trailer video here." required/>
+				<br>
+				<label for="trailer_url">Poster:</label>
+				<input type="text" class="span12 tool" name="movie[Poster_url]" rel="tooltip" title="Remember you need to go to Wikipedia to grab the poster image. Right click the image and choose <em>Copy Image URL</em>" required data-bind="value: moviePoster"/>
+			</fieldset>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<button type="submit" class="btn btn-large btn-success span12"><span class="icon-ui-icon-circle-check"></span>&nbsp;Save This Movie</button>
+		</div>
+	</div>		
+</form>
+<br>
+<div data-bind="visible: showPreview">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="page-header">
+				<h2>Preview:</h2>
+			</div>			
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<img src="" data-bind="attr: { src: moviePoster } ">
+		</div>
+		<div class="span9">
+			<h3 class="nowShowing-title" data-bind="text: movieTitle"></h3>
+			<ul class="unstyled">
+				<li><strong>Rated:</strong>&nbsp;<span data-bind="text: movieRating"></span></li>				
+				<li><strong>Runtime:</strong>&nbsp;<span data-bind="text: movieRuntime"></span></li>
+				<li><strong>Starring:</strong>&nbsp;<span data-bind="text: movieStars"></span></li>
+			</ul>
+			<hr />
+			<p class="lead" data-bind="text: movieDescription"></p>
+			<nav>
+				<a href="">Watch The Trailer</a>
+				&nbsp;<span>|</span>&nbsp;
+				<a href="">Read The Reviews</a>
+				&nbsp;<span>|</span>&nbsp;
+				<a href="">View on IMDB</a>
+			</nav>
+		</div>
+	</div>
+</div>
+<br>
+<script type="text/javascript">
+	$('.tool').tooltip('hide');
 
+	function MovieViewModel() {
+
+	var _self = this;		
+    this.movieTitle = ko.observable("");
+    this.movieRating = ko.observable("");
+    this.movieRuntime = ko.observable("");
+    this.movieDescription = ko.observable("");
+    this.movieStars = ko.observable("");
+    this.moviePoster = ko.observable("");
+
+    this.showPreview = ko.computed(function (){
+		if( _self.movieTitle().length > 0 || _self.movieRating().length > 0 ||
+			_self.movieRuntime().length > 0 || _self.movieDescription().length > 0 || 	    	
+	    	_self.movieStars().length > 0 || _self.moviePoster().length > 0){
+			return true;
+		}     	
+
+		return false;
+    });
+}
+
+ko.applyBindings(new MovieViewModel());
+
+
+</script>

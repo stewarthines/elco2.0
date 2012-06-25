@@ -1,38 +1,170 @@
-<div class="container_12 form">
-	<%= erb :_backend_menu %>
-	<div class="grid_12"><h2>Help:</h2></div>
-	<div class="grid_9">
-		<p id="introText">El Co is an easy to use app. Simply watch a video to learn how to use each section of the app.</p>
+<div class="row-fluid">
+	<div class="span12">
+		<div class="page-header">
+			<h1 class="text-info"><span class="icon-ui-icon-circle-question"></span>&nbsp;&nbsp;&nbsp;Help</h1>
+			<p class="lead">To learn about a feature, select it's tab. You can watch a video, or read a step by step guide.</p>
+		</div>
 	</div>
-	<div class="grid_12"><hr /></div>
-	<div class="clear"></div>
-	<div class="grid_6 prefix_3 suffix_3">
-		<h2>Overview:</h2>
-		<p style="margin-bottom:20px">
-			What is this app & what are it's parts? This video will give you a quick overview.
-		</p>
-		<iframe src="http://player.vimeo.com/video/41565687" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-	</div>
-	<div class="grid_6 prefix_3 suffix_3">
-		<h2>How to add a movie:</h2>
-		<p style="margin-bottom:20px;">This video will teach you how to add a movie to your movie data base. Movies are listed chronological order in which you added them. So, old movies at the top, new movies at the bottom. To delete a movie from the data base permenantly click the red "Remove Movie" link. Note: To add a poster you'll need to head to <a href="http://www.wikipedia.org/">Wikipedia</a> and search for your movie there. This is becasue IMDB does not allow hot-linking.</p>
-		<iframe src="http://player.vimeo.com/video/41565688" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-	</div>
-	<div class="grid_12">
-		<hr />
-	</div>
-	<div class="grid_6 prefix_3 suffix_3">
-		<h2>How to add a movie to Now Showing:</h2>
-		<p style="margin-bottom:20px;">This video will teach you how to add a movie from your database to the "Now Showing" slot. You can add as many movies as you like to this slot, however, the page is designed to show one now showing movie.</p>
-		<iframe src="http://player.vimeo.com/video/40889153" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-	</div>
-	<div class="grid_12">
-		<hr />
-	</div>
-	<div class="grid_6 prefix_3 suffix_3">
-		<h2>How to add a movie to Upcoming:</h2>
-		<p style="margin-bottom:20px;">This video will teach you how to add a movie from your database to the "Upcoming" section. The Upcoming section is designed to show no more than 3 movies at a time. If you do not add 3 movies it will appear unfinished. If you add more than 3 movies it will appear crowded.</p>
-		<iframe src="http://player.vimeo.com/video/40889040" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-	</div>
-	<div class="clear"></div>
 </div>
+<ul class="nav nav-tabs" id="helpTabs">
+  <li class="active"><a href="#home">Overview</a></li>
+  <li><a href="#database">Movie Database</a></li>
+  <li><a href="#addMovie">Adding a Movie</a></li>
+  <li><a href="#nowShowing">Setting "Now Showing"</a></li>
+  <li><a href="#upComing">Setting "Upcoming"</a></li>
+</ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="home">
+	<div class="row-fluid">
+		<div class="span8">
+			<div class="hero-unit">
+				<iframe src="http://player.vimeo.com/video/41565687" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+			</div>
+		</div>
+		<div class="span4">
+			<h2>Overview</h2>
+			<hr>
+			<p class="lead">
+				Welcome to the backside of El Co. This video will give you a quick & simple overview of the website and the app that powers it. 
+			</p>
+			<p>
+				Elco was designed with simplicity and useablity in mind. The features are very easy to use once you get the hang of it. Not only that, but the site is accessable in every major browser and on smart phones and tablets. 
+			</p>
+      <div class="alert alert-info">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>We've been busy!</strong>&nbsp;We've been working hard to improve El Co. Click here to see a video of all the new features!
+        <div class="row-fluid">
+            <a class="btn btn-large span12" data-toggle="modal" href="#featuresModal"><span class=" icon-ui-icon-newwin"></span>&nbsp;&nbsp;View Video</a>
+        </div>        
+      </div>
+		</div>
+	</div>
+  </div>
+  <div class="tab-pane" id="database">
+  	<div class="row-fluid">
+  		<div class="span8">
+  			<div class="hero-unit">
+          <iframe src="http://player.vimeo.com/video/41565688" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  			</div>
+  		</div>
+  		<div class="span4">
+  			<h2>Movie Database</h2>
+  			<hr>
+  			<p class="lead">The movie database is your collection of movies. This is where you can see all the movies you've ever created in the order in which they were created. Unfortunately at the moment you can not sort the database table. Other options on this page include a link to adding a movie, setting a movie as "now showing", and a link to setting movies as "upcoming." Also on the page is a dialog box showing which movie is currently showing. 
+        </p>
+  		</div>
+  	</div>
+    <div class="row-fluid">
+      <div class="page-header">
+        <h3>Movie Database, Step by Step:</h3>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span8">
+          <ol>
+            <li>There are several ways to get to your Movie Database. From the dashboard, click Movie Database. Or, from the top menu, click Movies then click <em>“Movie Database.”</em></li>
+            <li>
+              You can add a movie to the database by clicking Add Movie. You can delete movies from your database by clicking the read X button.
+              <div class="alert alert-danger">
+                <span class="icon-ui-icon-alert">&nbsp;</span><strong>Remember,</strong> deleting a movie deletes it for ever!
+              </div> 
+            </li>
+            <li>
+              Once a movie has been added you’ll find it in the table. The table is sorted by the order in which the movies were added. At this time the movie table can not be sorted and no plans to add sorting are in the works. 
+            </li>
+          </ol>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane" id="addMovie">
+  	<div class="row-fluid">
+  		<div class="span8">
+  			<div class="hero-unit">
+  				<iframe src="http://player.vimeo.com/video/41565688" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  			</div>
+  		</div>
+  		<div class="span4">
+  			<h2>Adding A Movie</h2>
+  			<hr>
+  			<p class="lead">Having movies in your database is what makes this app work. If you don’t have a movie you can’t have a “Now Showing” or “Upcoming” movie. We’ve worked hard to make sure that adding a movie is as easy as possible.</p>
+  		</div>
+    </div>
+  		<div class="row-fluid">
+      <div class="page-header">
+        <h3>Adding A Movie, Step by Step:</h3>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span8">
+          <ol>
+            <li>There are several ways to get to the Add A Movie Page. From the dashboard, click Movie Database to enter the database. From here click “Add Movie.” Or you can click Movies from the top nav bar & then click “Add Movie.”</li>
+            <li>
+              Adding a movie requires that you fill out 9 forms. None of the forms are optional. If you leave one blank you can’t save the form. As you fill out the form a preview will generate at the bottom of the page so that you can see what your movie will look like.
+            </li>
+            <li>
+              Movies have been designed to have the following elements: Title, Rating, Runtime, Description, stars, IMDB link, Reviews, Trailer & Poster all of these elements, except the poster, can be Copied and Pasted from IMDB. The poster must be taken from Wikipedia which allows Hot-Linking. This means that we are using their picture on our site. 
+            </li>
+            <li>
+              Once you’ve copied and pasted in the all the info in the form, or, filled it out by hand, and you’ve checked the preview to make sure it’s what you want, click save.
+            </li>
+            <li>
+              Once you save a movie you’ll be redirected to the database. You’ll see your new movie at the bottom of the database list.
+            </li>
+          </ol>
+      </div>
+  	</div>
+  </div>
+  <div class="tab-pane" id="nowShowing">
+  	<div class="row-fluid">
+  		<div class="span8">
+  			<div class="hero-unit">
+  				<iframe src="http://player.vimeo.com/video/40889153" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  			</div>
+  		</div>
+  		<div class="span4">
+  			<h2>Adding "Now Showing"</h2>
+  			<hr>
+  			<p>99% of your users are coming to your site to see which movie is playing.</p>
+  		</div>
+  	</div>
+  </div>
+  <div class="tab-pane" id="upComing">
+  	<div class="row-fluid">
+  		<div class="span8">
+  			<div class="hero-unit">
+  				<iframe src="http://player.vimeo.com/video/40889040" width="500" height="375" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  			</div>
+  		</div>
+  		<div class="span4">
+  			<h2>Adding "Upcoming"</h2>
+  			<hr>
+  			<p></p>
+  		</div>
+  	</div>
+  </div>
+</div>
+<div class="modal hide" id="featuresModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>New Features</h3>
+  </div>
+  <div class="modal-body">
+    <p>We've been working hard on El Co, see whats new!</p>
+    <iframe src="http://player.vimeo.com/video/41565688" width="500" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Done</a>
+  </div>
+</div>
+<script>
+  $('#featuresModal').modal('hide');
+  $(function () {
+    	$('#helpTabs a:first').tab('show');
+	});
+	$('#helptabs a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
+</script>
+
