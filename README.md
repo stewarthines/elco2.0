@@ -1,6 +1,6 @@
 #El•CO Movies
 
-v.0.1.3
+v.2.0
 
 ---
 
@@ -15,15 +15,20 @@ El•Co movies is a simple website for a drive in movie theater in Shattuck, OK 
 	* Creating a movie
 	* Adding a movie to now showing or upcoming
 	* Removing movies form now showing or upcoming
-2. Location information:
-	* Address
-	* Driving Directions
-3. Contact Information:
-	*Phone Number
-	*Email
-4. Mobile & Tablet support
 
-5. Testing
+2. Draw Nachos Icon
+
+3. Build Pricing Database and pages
+
+4. Set Mobile Background to white (backend)
+
+5. Create Help Videos and Documentation
+
+6. Set Help to navigate to the ID's instead of just the main help page
+
+7. Ajax IN the upcoming and nowshowing Data with Knock out instead of using Sinatra
+
+
 
 ---
 
