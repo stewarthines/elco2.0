@@ -37,17 +37,8 @@
 <br>
 <div class="row-fluid">
 	<div class="span12">
-		<% NowShowing.all.each do |ns| %>
-			<%= partial(:now_showing, :locals => {:item => ns}) %>
-			<br>
-
-			<div class="row-fluid">
-				<div class="span3">
-					<a href="/remove_now_showing/<%= ns.id %>" class="span12 btn btn-large btn-danger"><span class="icon-ui-icon-circle-close"></span>&nbsp;&nbsp;Remove This Movie</a>
-				</div>
-			</div>
-			<hr>
-		<% end %>	
+		<%= partial(:now_showing) %>
+		<br>
 	</div>
 </div>
 

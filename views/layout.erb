@@ -12,6 +12,65 @@
 	<script type="text/javascript" src="scripts/knockout-2.1.0.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+<script type="text/javascript">
+	function siteViewModel() {
+			var _self = this;
+			
+			this.Movies = ko.observableArray(<%= Movie.all.to_json %>);
+			this.Upcomings = ko.observableArray(<%= Upcoming.all.to_json(:include => :movie ) %>);
+			this.NowShowings = ko.observableArray(<%= NowShowing.all.to_json(:include => :movie ) %>);
+
+			this.settings = {
+				MaxUpcomings: 3,
+				MaxNowShowings: 2
+			}
+
+			this.fn = {
+				removeNowShowing: function(data){
+					_self.NowShowings.remove(data);
+					$.ajax({ url: '/remove_now_showing/' + data.id	});
+				},
+
+				removeUpcoming: function(data){
+					_self.Upcomings.remove(data);
+					$.ajax({ url: '/remove_upcoming/' + data.id	});
+				}
+			};
+
+			this.ui = {
+
+				showNowShowing: ko.computed(function (){						
+					return _self.NowShowings().length > 0;
+				}),
+
+
+				showRemoveButton: ko.observable(false),
+				
+				showUpcoming: ko.computed(function (){						
+					return _self.Upcomings().length > 0;
+				}),
+
+				showAddUpcomingButton: ko.computed(function(){
+					return _self.Upcomings().length < _self.settings.MaxUpcomings;
+				}),
+
+				removeNowShowingAnimation: function(elements,data){
+					$(elements).fadeOut();
+				},
+
+				removeUpcomingAnimation: function(elements,data){
+					$(elements).fadeOut();
+				}
+			};			
+		}
+
+		var viewModel = new siteViewModel();
+
+		$(document).ready(function(){
+			ko.applyBindings(viewModel);
+		});
+</script>
 </head>
 <body>
 	<div id="fb-root"></div>

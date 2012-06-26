@@ -19,7 +19,7 @@
 			<div class="well">
 				<legend>General Movie Info:</legend>
 				<label for="title">Title:</label>
-				<input type="text" class="span12 tool" name="movie[Title]" rel="tooltip" title="Paste the movie title here." autofocus required data-bind="value: movieTitle"/>
+				<input type="text" class="span12 tool" name="movie[Title]" rel="tooltip" title="Paste the movie title here." autofocus required data-bind="value: movieTitle, valueUpdate: 'afterkeydown'"/>
 				<br />
 				
 					<label for="rating">Rating:</label>

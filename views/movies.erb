@@ -50,6 +50,22 @@
 			<% NowShowing.all.each do |showing| %>
 				<div><a href="/add_now_showing" rel="tooltip" title="<%= showing.movie.Title %> is currently showing, click here to change." class="lead tool"><%= showing.movie.Title %></a></div>
 			<% end %>
+		</div>		
+		<div class="well-small">
+			<h3>Upcoming Movies:</h3>
+			<p data-bind="visible: ui.showUpcoming">Here's what coming up in the next 3 weeks:&nbsp;<a href="/add_now_showing">Change It</a></p>
+			<table class="table table-condensed table-bordered" data-bind="visible: ui.showUpcoming">
+		  		<tbody data-bind="foreach: Upcomings">			  	
+			    	<tr>
+			    		<td data-bind="text: $index() + 1"></td>
+			      		<td data-bind="text: movie.Title"></td>
+			    	</tr>			    
+		  		</tbody>			  
+			</table>
+			<div data-bind="visible: !ui.showUpcoming()">
+			  	<p class="lead muted">There are no upcoming movies.</p>
+			  	<button type="button" class="btn btn-primary span12" onClick="window.location='/add_upcoming'"><span class="icon-ui-icon-circle-plus"></span>&nbsp;&nbsp; Add Upcoming Movies</button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -9,6 +9,7 @@ require 'digest/sha1'
 
 enable :sessions
 
+ActiveRecord::Base.include_root_in_json = false
 
 helpers Sinatra::Partials
 helpers Sinatra::Authorization
@@ -152,6 +153,10 @@ post '/add_now_showing' do
 
 	#retrieve the movie by its id, and put it into the now showing.
 	nowShowing.movie = Movie.find(postData[:Movie])
+
+
+	upcoming = Upcoming.find(:all, :conditions => {:movie_id => nowShowing.movie.id})
+	Upcoming.destroy(upcoming)
 
 	#save new record
 	nowShowing.save
